@@ -50,6 +50,10 @@ public class Calculator extends javax.swing.JFrame {
         jBtn16 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jBtn17 = new javax.swing.JButton();
+        jBtn18 = new javax.swing.JButton();
+        jBtn19 = new javax.swing.JButton();
+        jBtn20 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +204,37 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
+        jBtn17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBtn17.setText("x!");
+        jBtn17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn17ActionPerformed(evt);
+            }
+        });
+
+        jBtn18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBtn18.setText("ex");
+        jBtn18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn18ActionPerformed(evt);
+            }
+        });
+
+        jBtn19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBtn19.setText("sq");
+        jBtn19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn19ActionPerformed(evt);
+            }
+        });
+
+        jBtn20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBtn20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -217,7 +252,8 @@ public class Calculator extends javax.swing.JFrame {
                             .addComponent(jBtn13, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                             .addComponent(jBtn9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBtn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtn17, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -247,7 +283,13 @@ public class Calculator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBtn15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtn16, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jBtn16, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtn18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn20, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -284,6 +326,13 @@ public class Calculator extends javax.swing.JFrame {
                         .addComponent(jBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtn20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtn17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn19, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -294,89 +343,90 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
-        // TODO add your handling code here:
+        // cislo 9
         String Enternumber = jtxtDisplay.getText() + jBtn9.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn9ActionPerformed
 
     private void jBtn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn12ActionPerformed
         // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText());
+        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
         jtxtDisplay.setText("");
         operations="-";
     }//GEN-LAST:event_jBtn12ActionPerformed
 
     private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
-        // TODO add your handling code here:
+        // cislo 3
         String Enternumber = jtxtDisplay.getText() + jBtn3.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn3ActionPerformed
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-        // TODO add your handling code here:
+        //cislo 1
         String Enternumber = jtxtDisplay.getText() + jBtn1.getText();
         jtxtDisplay.setText(Enternumber);
+        
     }//GEN-LAST:event_jBtn1ActionPerformed
 
     private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
-        // TODO add your handling code here:
+        // cislo2
         String Enternumber = jtxtDisplay.getText() + jBtn2.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn2ActionPerformed
 
     private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
-        // TODO add your handling code here:
+        // cislo 4
         String Enternumber = jtxtDisplay.getText() + jBtn4.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn4ActionPerformed
 
     private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
-        // TODO add your handling code here:
+        // cislo 5
         String Enternumber = jtxtDisplay.getText() + jBtn5.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn5ActionPerformed
 
     private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
-        // TODO add your handling code here:
+        // cislo 6
         String Enternumber = jtxtDisplay.getText() + jBtn6.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn6ActionPerformed
 
     private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
-        // TODO add your handling code here:
+        // cislo 7
         String Enternumber = jtxtDisplay.getText() + jBtn7.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn7ActionPerformed
 
     private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
-        // TODO add your handling code here:
+        // cislo 8
         String Enternumber = jtxtDisplay.getText() + jBtn8.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn8ActionPerformed
 
     private void jBtn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn10ActionPerformed
-        // TODO add your handling code here:
+        // cislo 0
         String Enternumber = jtxtDisplay.getText() + jBtn10.getText();
         jtxtDisplay.setText(Enternumber);
     }//GEN-LAST:event_jBtn10ActionPerformed
 
     private void jBtn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn11ActionPerformed
         // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText());
+        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
         jtxtDisplay.setText("");
         operations="+";
     }//GEN-LAST:event_jBtn11ActionPerformed
 
     private void jBtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn13ActionPerformed
         // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText());
+        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
         jtxtDisplay.setText("");
         operations="*";
     }//GEN-LAST:event_jBtn13ActionPerformed
 
     private void jBtn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn14ActionPerformed
         // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText());
+        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
         jtxtDisplay.setText("");
         operations="/";
     }//GEN-LAST:event_jBtn14ActionPerformed
@@ -397,27 +447,44 @@ public class Calculator extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String answer;
-        secondnum = Double.parseDouble(jtxtDisplay.getText());
+        //
         
-        if(operations == "+"){
-            result= firstnum+secondnum;
-            answer=String.format("%.0f",result);
-            jtxtDisplay.setText(answer);
-        }
-        else if(operations == "-"){
-            result= firstnum+secondnum;
-            answer=String.format("%.0f",result);
-            jtxtDisplay.setText(answer);
-        }
-        else if(operations == "*"){
-            result= firstnum*secondnum;
-            answer=String.format("%.0f",result);
-            jtxtDisplay.setText(answer);
-        }
-        else if(operations == "/"){
-            result= firstnum/secondnum;
-            answer=String.format("%.0f",result);
-            jtxtDisplay.setText(answer);
+        if(null != operations)switch(operations){
+            case "+":
+                secondnum = Double.parseDouble(jtxtDisplay.getText());
+                result= firstnum+secondnum;
+                answer=String.format("%f",result).replace(',','.');
+                jtxtDisplay.setText(answer);
+                break;
+            case "-":
+                secondnum = Double.parseDouble(jtxtDisplay.getText());
+                result= firstnum+secondnum;
+                answer=String.format("%f",result).replace(',','.');
+                jtxtDisplay.setText(answer);
+                break;
+            case "*":
+                secondnum = Double.parseDouble(jtxtDisplay.getText());
+                result= firstnum*secondnum;
+                answer=String.format("%f",result).replace(',','.');
+                jtxtDisplay.setText(answer);
+                break;
+            case "!":
+                String facto = jtxtDisplay.getText();
+                facto=removeLastChar(facto);
+                 System.out.println(facto);
+                firstnum=Double.parseDouble(facto);
+                result=factorial(firstnum);
+                answer=String.format("%.0f",result);
+                jtxtDisplay.setText(answer);
+                break;
+            case "/":
+                secondnum = Double.parseDouble(jtxtDisplay.getText());
+                result= firstnum/secondnum;
+                answer=String.format("%f",result).replace(',','.');
+                jtxtDisplay.setText(answer);
+                break;
+            default:
+                break;
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -427,6 +494,35 @@ public class Calculator extends javax.swing.JFrame {
         jtxtDisplay.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jBtn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn17ActionPerformed
+        // TODO add your handling code here:
+        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
+        jtxtDisplay.setText(jtxtDisplay.getText()+"!");
+        operations="!";
+    }//GEN-LAST:event_jBtn17ActionPerformed
+
+    private void jBtn18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtn18ActionPerformed
+
+    private void jBtn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtn19ActionPerformed
+
+    private void jBtn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtn20ActionPerformed
+  
+    private static String removeLastChar(String str) {
+        return str.substring(0, str.length() - 1);
+    }
+    
+    static double factorial(double n){    
+        if (n == 0)    
+            return 1;    
+    else    
+        return(n * factorial(n-1));    
+    } 
     /**
      * @param args the command line arguments
      */
@@ -471,7 +567,11 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton jBtn14;
     private javax.swing.JButton jBtn15;
     private javax.swing.JButton jBtn16;
+    private javax.swing.JButton jBtn17;
+    private javax.swing.JButton jBtn18;
+    private javax.swing.JButton jBtn19;
     private javax.swing.JButton jBtn2;
+    private javax.swing.JButton jBtn20;
     private javax.swing.JButton jBtn3;
     private javax.swing.JButton jBtn4;
     private javax.swing.JButton jBtn5;
