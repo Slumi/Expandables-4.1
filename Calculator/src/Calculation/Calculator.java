@@ -454,7 +454,7 @@ public class Calculator extends javax.swing.JFrame {
         if(null != operations)switch(operations){
             case "+":
                 secondnum = Double.parseDouble(jtxtDisplay.getText());
-                result= firstnum+secondnum;
+                result= Calculation.MyMath.add(firstnum, secondnum);
                 answer=String.format("%f",result).replace(',','.');
                 jtxtDisplay.setText(answer);
                 break;
