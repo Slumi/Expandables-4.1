@@ -6,8 +6,10 @@
 package Calculation;
 
 /**
- *
- * @author Damian
+ * @author Žaneta Grossová
+ * @author Marie Bednářová
+ * @author Damián Gladiš
+ * @author Šimon Galba
  */
 public class Calculator extends javax.swing.JFrame {
 
