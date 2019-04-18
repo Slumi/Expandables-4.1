@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Calculation;
+import java.awt.Dimension;
+import java.util.Stack;
 
 /**
  * @author Žaneta Grossová
@@ -12,11 +14,6 @@ package Calculation;
  * @author Šimon Galba
  */
 public class Calculator extends javax.swing.JFrame {
-
-    double firstnum;
-    double secondnum;
-    double result;
-    String operations;
     /**
      * Creates new form Calculator
      */
@@ -43,34 +40,40 @@ public class Calculator extends javax.swing.JFrame {
         jBtn7 = new javax.swing.JButton();
         jBtn8 = new javax.swing.JButton();
         jBtn9 = new javax.swing.JButton();
-        jBtn10 = new javax.swing.JButton();
-        jBtn11 = new javax.swing.JButton();
-        jBtn12 = new javax.swing.JButton();
-        jBtn13 = new javax.swing.JButton();
-        jBtn14 = new javax.swing.JButton();
-        jBtn15 = new javax.swing.JButton();
-        jBtn16 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jBtn17 = new javax.swing.JButton();
-        jBtn19 = new javax.swing.JButton();
-        jBtn20 = new javax.swing.JButton();
-        jBtn21 = new javax.swing.JButton();
+        jBtn0 = new javax.swing.JButton();
+        jPlus = new javax.swing.JButton();
+        jMinus = new javax.swing.JButton();
+        jMultiply = new javax.swing.JButton();
+        jDivide = new javax.swing.JButton();
+        jBackspace = new javax.swing.JButton();
+        jPoint = new javax.swing.JButton();
+        jClear = new javax.swing.JButton();
+        jEvaluate = new javax.swing.JButton();
+        jFactorial = new javax.swing.JButton();
+        jSqrt = new javax.swing.JButton();
+        jLn = new javax.swing.JButton();
+        jExp = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jStandard = new javax.swing.JMenuItem();
+        jScientific = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculator");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
+        jtxtDisplay.setEditable(false);
         jtxtDisplay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jtxtDisplay.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtxtDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtDisplayActionPerformed(evt);
+            }
+        });
 
         jBtn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jBtn1.setText("1");
@@ -144,134 +147,134 @@ public class Calculator extends javax.swing.JFrame {
             }
         });
 
-        jBtn10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn10.setText("0");
-        jBtn10.addActionListener(new java.awt.event.ActionListener() {
+        jBtn0.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBtn0.setText("0");
+        jBtn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn10ActionPerformed(evt);
+                jBtn0ActionPerformed(evt);
             }
         });
 
-        jBtn11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn11.setText("+");
-        jBtn11.addActionListener(new java.awt.event.ActionListener() {
+        jPlus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPlus.setText("+");
+        jPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn11ActionPerformed(evt);
+                jPlusActionPerformed(evt);
             }
         });
 
-        jBtn12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn12.setText("-");
-        jBtn12.addActionListener(new java.awt.event.ActionListener() {
+        jMinus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jMinus.setText("-");
+        jMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn12ActionPerformed(evt);
+                jMinusActionPerformed(evt);
             }
         });
 
-        jBtn13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn13.setText("*");
-        jBtn13.addActionListener(new java.awt.event.ActionListener() {
+        jMultiply.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jMultiply.setText("*");
+        jMultiply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn13ActionPerformed(evt);
+                jMultiplyActionPerformed(evt);
             }
         });
 
-        jBtn14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn14.setText("/");
-        jBtn14.addActionListener(new java.awt.event.ActionListener() {
+        jDivide.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jDivide.setText("/");
+        jDivide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn14ActionPerformed(evt);
+                jDivideActionPerformed(evt);
             }
         });
 
-        jBtn15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn15.setText("+/-");
-        jBtn15.addActionListener(new java.awt.event.ActionListener() {
+        jBackspace.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jBackspace.setText("←");
+        jBackspace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn15ActionPerformed(evt);
+                jBackspaceActionPerformed(evt);
             }
         });
 
-        jBtn16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn16.setText(".");
-        jBtn16.addActionListener(new java.awt.event.ActionListener() {
+        jPoint.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPoint.setText(".");
+        jPoint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn16ActionPerformed(evt);
+                jPointActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("C");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jClear.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jClear.setText("C");
+        jClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jClearActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("=");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jEvaluate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jEvaluate.setText("=");
+        jEvaluate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jEvaluateActionPerformed(evt);
             }
         });
 
-        jBtn17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn17.setText("fac");
-        jBtn17.addActionListener(new java.awt.event.ActionListener() {
+        jFactorial.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jFactorial.setText("!");
+        jFactorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn17ActionPerformed(evt);
+                jFactorialActionPerformed(evt);
             }
         });
 
-        jBtn19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn19.setText("exp");
-        jBtn19.addActionListener(new java.awt.event.ActionListener() {
+        jSqrt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jSqrt.setText("√");
+        jSqrt.setToolTipText("");
+        jSqrt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn19ActionPerformed(evt);
+                jSqrtActionPerformed(evt);
             }
         });
 
-        jBtn20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn20.setText("sqr");
-        jBtn20.addActionListener(new java.awt.event.ActionListener() {
+        jLn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLn.setText("ln");
+        jLn.setMaximumSize(new java.awt.Dimension(43, 31));
+        jLn.setMinimumSize(new java.awt.Dimension(43, 31));
+        jLn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn20ActionPerformed(evt);
+                jLnActionPerformed(evt);
             }
         });
 
-        jBtn21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jBtn21.setText("log");
-        jBtn21.addActionListener(new java.awt.event.ActionListener() {
+        jExp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jExp.setText("^");
+        jExp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn21ActionPerformed(evt);
+                jExpActionPerformed(evt);
             }
         });
 
-        jMenu1.setText("File");
+        jMenu1.setText("Type");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Standard");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jStandard.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jStandard.setText("Standard");
+        jStandard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jStandardActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jStandard);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Scientific");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jScientific.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jScientific.setText("Scientific");
+        jScientific.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jScientificActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(jScientific);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -281,55 +284,54 @@ public class Calculator extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jtxtDisplay)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jBtn13, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                                .addComponent(jBtn9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBtn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jBtn10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jBtn11, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jBtn16, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                        .addComponent(jBtn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtxtDisplay)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jClear, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jEvaluate, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtn9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jBtn0, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jBackspace, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtn20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtn19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtn17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtn21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jExp, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFactorial, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,265 +339,693 @@ public class Calculator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jtxtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBtn19, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBtn8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jExp, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBtn12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jBtn10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jBtn11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jBtn13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBtn14, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBtn15, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jBtn16, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBtn21, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn0, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSqrt, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBtn20, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(189, 189, 189)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jEvaluate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jClear, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jFactorial, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBackspace, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(63, 63, 63)))))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
-        // cislo 9
-        String Enternumber = jtxtDisplay.getText() + jBtn9.getText();
-        jtxtDisplay.setText(Enternumber);
+        //posluchac k tlacitku '9'
+        String str = jtxtDisplay.getText();//zoberie text z textfieldu
+        if(SyntaxError()==true){//ak to je error, nastavi '9' na obrazovku
+            jtxtDisplay.setText(jBtn9.getText());
+        }
+        else{//inak..
+            int len = str.length();//dlzka vstupu
+            if(str.equals("")){//a je prazdny, prida '9'
+                str = str + jBtn9.getText();
+                jtxtDisplay.setText(str);//
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//inak skontroluje posledny znak a nasledne prida 9 a zobrazí
+                    str = str + jBtn9.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn9ActionPerformed
 
-    private void jBtn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn12ActionPerformed
-        // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
-        jtxtDisplay.setText("");
-        operations="-";
-    }//GEN-LAST:event_jBtn12ActionPerformed
+    private void jMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMinusActionPerformed
+        //posluchac k tlacidlu '-'
+        String str = jtxtDisplay.getText();//zoberie text z textfieldu
+        if(SyntaxError()==true){//ak to je error, zmaze obrazovku
+            jtxtDisplay.setText("");
+            str="";
+        }
+        else if(str.equals("")){
+            jtxtDisplay.setText(jMinus.getText());//ak je prazdny,nastavi minus
+        }
+        else{
+            int len = str.length();//
+            if(len>0){//dlzka retazca na obrazovke
+                len-=1;//zmensime o jedna, aby sme sa dostali na psolednu poziciu
+                if(str.charAt(len)=='+' || str.charAt(len)=='-' || str.charAt(len)=='*' || str.charAt(len)=='/'){
+                    str=removeLastChar(str);//ak to je znamienko, zmen posledny znak na '-'
+                    str = str + jMinus.getText();
+                    jtxtDisplay.setText(str);
+                }
+                else if(str.charAt(len)=='!' || Character.isDigit(str.charAt(len))){//ak to je !,pridaj '-'
+                    str = str + jMinus.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+        }
+    }//GEN-LAST:event_jMinusActionPerformed
 
     private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
-        // cislo 3
-        String Enternumber = jtxtDisplay.getText() + jBtn3.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac k tlacidlu '3'
+        String str = jtxtDisplay.getText();//nacita text z textfieldu
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn3.getText());//ak je error, zmaz a nastav '3'
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny,pridaj trojku
+                str = str + jBtn3.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je, skontroluj ci je pred faktorial, ak nie pridaj '3'
+                    str = str + jBtn3.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn3ActionPerformed
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-        //cislo 1
-        String Enternumber = jtxtDisplay.getText() + jBtn1.getText();
-        jtxtDisplay.setText(Enternumber);
-        
+        //posluchac k cislu '1'
+        String str = jtxtDisplay.getText();//nacita text z textfieldu
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn1.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny textfield, pridaj '1'
+                str = str + jBtn1.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je prazdny a poslendy znak nie je  !, prida '1'
+                    str = str + jBtn1.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn1ActionPerformed
 
     private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
-        // cislo2
-        String Enternumber = jtxtDisplay.getText() + jBtn2.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac k tlacidlu '2'
+        String str = jtxtDisplay.getText();//text na testfielde
+        if(SyntaxError()==true){//kontrola errorov na obrazovke
+            jtxtDisplay.setText(jBtn2.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '2'
+                str = str + jBtn2.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '2'
+                    str = str + jBtn2.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn2ActionPerformed
 
     private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
-        // cislo 4
-        String Enternumber = jtxtDisplay.getText() + jBtn4.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac pre cislo '4'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn4.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '4'
+                str = str + jBtn4.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '4'
+                    str = str + jBtn4.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn4ActionPerformed
 
     private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
-        // cislo 5
-        String Enternumber = jtxtDisplay.getText() + jBtn5.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac pre cislo '5'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn5.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '5'
+                str = str + jBtn5.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '5'
+                    str = str + jBtn5.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn5ActionPerformed
 
     private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
-        // cislo 6
-        String Enternumber = jtxtDisplay.getText() + jBtn6.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac pre cislo '6'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn6.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '6'
+                str = str + jBtn6.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '6'
+                    str = str + jBtn6.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn6ActionPerformed
 
     private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
-        // cislo 7
-        String Enternumber = jtxtDisplay.getText() + jBtn7.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac pre cislo '7'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn7.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '7'
+                str = str + jBtn7.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '7'
+                    str = str + jBtn7.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn7ActionPerformed
 
     private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
-        // cislo 8
-        String Enternumber = jtxtDisplay.getText() + jBtn8.getText();
-        jtxtDisplay.setText(Enternumber);
+        // posluchac pre cislo '8'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn8.getText());
+        }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '8'
+                str = str + jBtn8.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '8'
+                    str = str + jBtn8.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
     }//GEN-LAST:event_jBtn8ActionPerformed
 
-    private void jBtn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn10ActionPerformed
-        // cislo 0
-        String Enternumber = jtxtDisplay.getText() + jBtn10.getText();
-        jtxtDisplay.setText(Enternumber);
-    }//GEN-LAST:event_jBtn10ActionPerformed
-
-    private void jBtn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn11ActionPerformed
-        // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
-        jtxtDisplay.setText("");
-        operations="+";
-    }//GEN-LAST:event_jBtn11ActionPerformed
-
-    private void jBtn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn13ActionPerformed
-        // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
-        jtxtDisplay.setText("");
-        operations="*";
-    }//GEN-LAST:event_jBtn13ActionPerformed
-
-    private void jBtn14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn14ActionPerformed
-        // TODO add your handling code here:
-        firstnum = Double.parseDouble(jtxtDisplay.getText().replace(',','.'));
-        jtxtDisplay.setText("");
-        operations="/";
-    }//GEN-LAST:event_jBtn14ActionPerformed
-
-    private void jBtn16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn16ActionPerformed
-        // TODO add your handling code here:
-        String Enternumber = jtxtDisplay.getText() + jBtn16.getText();
-        jtxtDisplay.setText(Enternumber);
-    }//GEN-LAST:event_jBtn16ActionPerformed
-
-    private void jBtn15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn15ActionPerformed
-        // TODO add your handling code here:
-        double ops = Double.parseDouble(String.valueOf(jtxtDisplay.getText()));
-        ops = ops * (-1);
-        jtxtDisplay.setText(String.valueOf(ops));
-    }//GEN-LAST:event_jBtn15ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        String answer;
-        //
-        
-        if(null != operations)switch(operations){
-            case "+":
-                secondnum = Double.parseDouble(jtxtDisplay.getText());
-                result= Calculation.MyMath.add(firstnum, secondnum);
-                answer=String.format("%f",result).replace(',','.');
-                jtxtDisplay.setText(answer);
-                break;
-            case "-":
-                secondnum = Double.parseDouble(jtxtDisplay.getText());
-                result= firstnum+secondnum;
-                answer=String.format("%f",result).replace(',','.');
-                jtxtDisplay.setText(answer);
-                break;
-            case "*":
-                secondnum = Double.parseDouble(jtxtDisplay.getText());
-                result= firstnum*secondnum;
-                answer=String.format("%f",result).replace(',','.');
-                jtxtDisplay.setText(answer);
-                break;
-            case "!":
-                String facto = jtxtDisplay.getText();
-                facto=removeLastChar(facto);
-                 System.out.println(facto);
-                firstnum=Double.parseDouble(facto);
-                result=factorial(firstnum);
-                answer=String.format("%.0f",result);
-                jtxtDisplay.setText(answer);
-                break;
-            case "/":
-                secondnum = Double.parseDouble(jtxtDisplay.getText());
-                result= firstnum/secondnum;
-                answer=String.format("%f",result).replace(',','.');
-                jtxtDisplay.setText(answer);
-                break;
-            default:
-                break;
+    private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn0ActionPerformed
+        // posluchac pre cislo '0'
+        String str = jtxtDisplay.getText();//nacita vstup
+        if(SyntaxError()==true){//kontrola errorov
+            jtxtDisplay.setText(jBtn0.getText());
         }
+        else{
+            int len = str.length();
+            if(str.equals("")){//ak je prazdny, nastavi '0'
+                str = str + jBtn0.getText();
+                jtxtDisplay.setText(str);
+            }
+            else{
+                len--;
+                if(str.charAt(len)!='!'){//ak nie je a zaroven posledny znak nie je !,prida '0'
+                    str = str + jBtn0.getText();
+                    jtxtDisplay.setText(str);
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_jBtn0ActionPerformed
+
+    private void jPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPlusActionPerformed
+        // posluchac pre tlacidlo '+'
+            String str = jtxtDisplay.getText();
+            if(SyntaxError()==true){//kontrola errorov
+                str="";
+                jtxtDisplay.setText("");
+            }
+            int len = str.length();//dlzka textu z textfieldu
+            if(len>0){
+
+                len-=1;
+                if(str.charAt(len)=='+' || str.charAt(len)=='-' || str.charAt(len)=='*' || str.charAt(len)=='/'){
+                    str=removeLastChar(str);//ak je posledny znak znamienko, zmen znamienko
+                    str = str + jPlus.getText();
+                    jtxtDisplay.setText(str);
+                }
+                else if(str.charAt(len)=='!'){//ak je posledny znak !, pridaj '+'
+                    str = str + jPlus.getText();
+                    jtxtDisplay.setText(str);
+                }
+                else if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '+' 
+                    String Enternumber = jtxtDisplay.getText() + jPlus.getText();
+                    jtxtDisplay.setText(Enternumber);
+                }
+
+            }
+    }//GEN-LAST:event_jPlusActionPerformed
+
+    private void jMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMultiplyActionPerformed
+            // posluchac pre tlacidlo '*'
+            String str = jtxtDisplay.getText();
+            if(SyntaxError()==true){//kontrola errorov
+                str="";
+                jtxtDisplay.setText("");
+            }
+            int len = str.length();
+            if(len>0){
+
+                len-=1;
+                if(str.charAt(len)=='+' || str.charAt(len)=='-' || str.charAt(len)=='*' || str.charAt(len)=='/'){
+                    str=removeLastChar(str);//ak je posledny znak znamienko, zmen znamienko
+                    str = str + jMultiply.getText();
+                    jtxtDisplay.setText(str);
+
+                }
+                else if(str.charAt(len)=='!'){//ak je posledny znak !, pridaj '*'
+                    str = str + jMultiply.getText();
+                    jtxtDisplay.setText(str);
+                }
+                else if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '*' 
+                    String Enternumber = jtxtDisplay.getText() + jMultiply.getText();
+                    jtxtDisplay.setText(Enternumber);
+                }
+
+            }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jMultiplyActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        jtxtDisplay.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDivideActionPerformed
+         // posluchac pre tlacidlo '/'
+            String str = jtxtDisplay.getText();
+            if(SyntaxError()==true){//kontrola errorov
+                str="";
+                jtxtDisplay.setText("");
+            }
+            int len = str.length();
+            if(len>0){
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        this.setResizable(true);
-        this.setSize(380, 460);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+                len-=1;
+                if(str.charAt(len)=='+' || str.charAt(len)=='-' || str.charAt(len)=='*' || str.charAt(len)=='/'){
+                    str=removeLastChar(str);//ak je posledny znak znamienko, zmen znamienko
+                    str = str + jDivide.getText();
+                    jtxtDisplay.setText(str);
+
+                }
+                else if(str.charAt(len)=='!'){//ak je posledny znak !, pridaj '/'
+                    str = str + jDivide.getText();
+                    jtxtDisplay.setText(str);
+                }
+                else if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '/' 
+                    String Enternumber = jtxtDisplay.getText() + jDivide.getText();
+                    jtxtDisplay.setText(Enternumber);
+                }
+            }
+         
+    }//GEN-LAST:event_jDivideActionPerformed
+
+    private void jPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPointActionPerformed
+        // posluchac pre tlacidlo '.'
+            String str = jtxtDisplay.getText();
+            if(SyntaxError()==true){//kontrola errorov
+                str="";
+                jtxtDisplay.setText("");
+            }
+            int len = str.length();
+            if(len>0){
+
+                len-=1;
+                if(Character.isDigit(str.charAt(len))){//ak retazec nie je prazdny a posledny znak je cislo, pridaj '.'
+                    String Enternumber = jtxtDisplay.getText() + jPoint.getText();
+                    jtxtDisplay.setText(Enternumber); 
+                }
+            }
+        
+    }//GEN-LAST:event_jPointActionPerformed
+
+    private void jBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackspaceActionPerformed
+        // posluchac pre tlacidlo '<-'
+            String str = jtxtDisplay.getText();
+            if(SyntaxError()==true){//kontrola errorov
+                str="";
+            }
+            if(!str.equals("")){//ak nei je prazdny retazec, zmaz posledny character
+                str=removeLastChar(str);
+            }
+            jtxtDisplay.setText(str);//zobraz upraveny retazec
+        
+    }//GEN-LAST:event_jBackspaceActionPerformed
+
+    private void jEvaluateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEvaluateActionPerformed
+        if(SyntaxError()==true){        //ak bol na obrazovke textfield, vymaz ho a nechaj prazdny
+            jtxtDisplay.setText("");
+        }
+        else{
+            String answer=jtxtDisplay.getText().replace(',','.');//inak..
+            if(!answer.equals("")){//ak nie je obrazovka prazdna....
+                answer = calculate(answer);//vypocitaj
+                 jtxtDisplay.setText(answer);//vyhod na obrazovku              
+            }   
+        }
+    }//GEN-LAST:event_jEvaluateActionPerformed
+
+    private void jClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jClearActionPerformed
+        // posluchac k tlacidlu 'C'
+        jtxtDisplay.setText("");//zmaz vsetko na obrazovke
+    }//GEN-LAST:event_jClearActionPerformed
+
+    private void jScientificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jScientificActionPerformed
+        //posluchac k type Scientific
+        this.setSize(380, 460);     //velkost kalkulacky   
+        this.setResizable(false);//zakaz zmeny velkosti
+        jtxtDisplay.setMinimumSize(new Dimension(362, 74));//velkost textfieldu
+        jtxtDisplay.setMaximumSize(new Dimension(362, 74));
+
+    }//GEN-LAST:event_jScientificActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        this.setResizable(true);
-        this.setSize(300, 460);
+         //posluchac k Oknu po spusteni Kalkulacky
+        this.setSize(300, 460);//velkost kalkulacky 
+        this.setResizable(false);//zakaz zmeny velkosti
+        jtxtDisplay.setMinimumSize(new Dimension(282, 74));//velkost textfieldu
+        jtxtDisplay.setMaximumSize(new Dimension(282, 74));
     }//GEN-LAST:event_formWindowActivated
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.setResizable(true);
-        this.setSize(300, 460);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jStandardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStandardActionPerformed
+        //posluchac k type Standard
+        this.setSize(300, 460);//velkost kalkulacky 
+        this.setResizable(false);//zakaz zmeny velkosti
+        jtxtDisplay.setMinimumSize(new Dimension(282, 74));//velkost textfieldu
+        jtxtDisplay.setMaximumSize(new Dimension(282, 74));
+    }//GEN-LAST:event_jStandardActionPerformed
 
-    private void jBtn17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtn17ActionPerformed
+    private void jFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFactorialActionPerformed
+        //posluchac k tlacidlu '!'    
+        String str = jtxtDisplay.getText();
+        if(SyntaxError()==true){//kontrola errorov
+            str="";
+        }
+        int len = jtxtDisplay.getText().length();
+        if(len>0){//ak retazec nie je prazdny...
+            len-=1;
+            if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '!'
+                String Enternumber = jtxtDisplay.getText() + jFactorial.getText();
+                jtxtDisplay.setText(Enternumber); 
+            }
+        }
+    }//GEN-LAST:event_jFactorialActionPerformed
 
-    private void jBtn19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtn19ActionPerformed
+    private void jSqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSqrtActionPerformed
+        //posluchac pre tlacidlo '√'
+        String str = jtxtDisplay.getText();
+        if(SyntaxError()==true){//kontrola errorov
+            str="";
+        }
+        int len = jtxtDisplay.getText().length();
+        if(len>0){//ak retazec na textfielde nie je prazdny...
+            len-=1;
+            if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '√'
+                String Enternumber = jtxtDisplay.getText() + jSqrt.getText();
+                jtxtDisplay.setText(Enternumber); 
+            }
+        }
+    }//GEN-LAST:event_jSqrtActionPerformed
 
-    private void jBtn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtn20ActionPerformed
+    private void jLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLnActionPerformed
+        //posluchac pre tlacidlo 'ln'
+        String str = jtxtDisplay.getText();
+        if(SyntaxError()==true){//kontrola errorov
+            str="";
+        }
+        int len = str.length();
+        len--;
+        if(len>0){//ak retazec nie je prazdny
+            
+            if(str.charAt(len)=='+' || str.charAt(len)=='-' || str.charAt(len)=='*' || str.charAt(len)=='/'){//ak je posledny znak znamienko, pridaj 'ln'
+                String Enternumber = jtxtDisplay.getText() + jLn.getText();
+                jtxtDisplay.setText(Enternumber); 
+            }
+        }
+        if(str.equals("")){//ak je retazec prazdny, pridaj 'ln'
+            jtxtDisplay.setText(jLn.getText());
+        }
+    }//GEN-LAST:event_jLnActionPerformed
 
-    private void jBtn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtn21ActionPerformed
+    private void jExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExpActionPerformed
+        //posluchac k tlacidlu '^'
+        String str = jtxtDisplay.getText();
+        if(SyntaxError()==true){//kontrola errorov
+            str="";
+        }
+        int len = jtxtDisplay.getText().length();
+        if(len>0){//ak retazec nie je prazdny,...
+            len-=1;
+            if(Character.isDigit(str.charAt(len))){//ak je posledny znak cislo, pridaj '^'
+                String Enternumber = jtxtDisplay.getText() + jExp.getText();
+                jtxtDisplay.setText(Enternumber); 
+            }
+        }
+    }//GEN-LAST:event_jExpActionPerformed
+
+    private void jtxtDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtDisplayActionPerformed
+        //posluchac k textfieldu jtxtDisplay
+        this.jtxtDisplay.setEditable(false);//zamedzenie zmeny velkosti
+    }//GEN-LAST:event_jtxtDisplayActionPerformed
   
-    private String removeLastChar(String str) {
+    private String removeLastChar(String str) {//funkcia na ostranenie posledneho znaku z retazca
         return str.substring(0, str.length() - 1);
     }
     
-    static double factorial(double n){    
-        if (n == 0)    
-            return 1;    
-    else    
-        return(n * factorial(n-1));    
-    } 
-    
-    void tryCalculate(String ipnut){
-        
-        
-        
+    private boolean SyntaxError() {//funkcia na kotrolu errorov
+        if(jtxtDisplay.getText().equals("Syntax ERROR") || jtxtDisplay.getText().equals("Can't divide by ZERO")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+    
+    String calculate(String input){//funkcia calculate pre vypocty
+        
+        if(!Character.isDigit(input.charAt(input.length()-1)) && !('!'==input.charAt(input.length()-1))){//ak nie je psoledny znak cislo alebo !, hod error
+                   return "Syntax ERROR";
+        }
+        String answer;//premenne
+        int i;
+        StringBuilder sb = new StringBuilder(input);
+
+        for (i = 0; i < sb.length(); i ++){
+            //pomocny proces, ktory kazdy operator alebo funckiu oddeli medzerou
+            if ((sb.charAt(i)=='+' || sb.charAt(i)=='-' || sb.charAt(i)=='*' || sb.charAt(i)=='/' || sb.charAt(i)=='!' || sb.charAt(i)=='^' || sb.charAt(i)=='√') && i!=0)
+            {
+                sb.insert(i+1, " ");
+                sb.insert(i, " ");
+                i++;
+            }
+            if(sb.charAt(i)=='l'){
+                sb.insert(i+1, " ");
+                sb.insert(i, " ");
+                i+=2;
+            }
+        }
+        
+        answer = sb.toString();//spravi z neho string
+        
+        char[] tokens = answer.toCharArray();//spravi pole znakov 
+  
+         // Zasobník pre čísla 
+        Stack <Double> values = new Stack<>(); 
+  
+        // Zasobnik pre operatory
+        Stack <Character> ops = new Stack<>(); 
+  
+        for (i = 0; i < tokens.length; i++) 
+        { 
+            //ak najdes medzeru, preskoc
+            if (tokens[i] == ' ') 
+                continue; 
+  
+            // ak najdes minus na zaciatku alebo cislo, tak
+            if ((i==0 && tokens[i]=='-') || (tokens[i] >= '0' && tokens[i] <= '9')) 
+            { 
+                StringBuilder sbuf = new StringBuilder(); //sbuf bude postupne pridat cisla alebo bodky do stringu
+                int point_counter=0;//pocitanie bodiek v jedno cisle
+                //pokial su dalsie znaky cislo alebo bodka a nie je koniec retazca, tak
+                while (((i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') || (i < tokens.length && tokens[i] == '.') || (i==0 && tokens[i]=='-'))){
+                    
+                    if(tokens[i] == '.')point_counter++;//pocita bodky
+                    sbuf.append(tokens[i++]);//pridava znaky do sbuf
+                    
+                }
+                if(point_counter>1)return "Syntax ERROR";    //error ak bolo zadanychv jednom cisle viac bodiek
+                values.push(Double.parseDouble(sbuf.toString())); //prida cele cislo na zasobnik
+            } 
+            else if(tokens[i] == '!'){
+                    Double valueFac=values.pop();//zoberie cislo zo zasobniku co bolo pred ! a vypocita
+                    if(valueFac<0)return "Syntax ERROR";
+                    values.push(MyMath.fac(valueFac));//hodi to naspat na zasobnik pre dalsie vypocty
+            }
+            else if(tokens[i] == '^'){//mocnina
+                    i+=2;//preskocime medzeru a nastavime poziciu za medzeru
+                    StringBuilder sbuf = new StringBuilder();//vytvorime string bulider, base je v zasobniku, exp nacitame
+                    while (((i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') || (i < tokens.length && tokens[i] == '.'))) 
+                        sbuf.append(tokens[i++]); //pridavame znaky do retazca
+                    Double d1 =Double.parseDouble(sbuf.toString()); //exp string zkonvertujeme na double
+                    Double d2 = values.pop();//zoberieme base zo zasobniku
+                    values.push(MyMath.pow(d2,d1));//spocitame a vratime na zasobnik
+            }
+            else if(tokens[i] == '√'){//
+                    i+=2;//preskocime medzeru a nastavime poziciu za medzeru
+                    StringBuilder sbuf = new StringBuilder();//vytvorime string bulider, exp je v zasobniku, base nacitame
+                    while (((i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') || (i < tokens.length && tokens[i] == '.'))) 
+                        sbuf.append(tokens[i++]); //pridavame znaky do retazca
+                    Double d1 =Double.parseDouble(sbuf.toString());//zkonvertujeme base na double
+                    Double d2 = values.pop();//zoberieme exp zo zasobniku
+                    values.push(MyMath.root(d1,d2));//vypocitame  vratime na zasobnik
+            }
+            else if(tokens[i] == 'l'){
+                    i+=3;//preskocime 'n' a medzeru a nastavime poziciu za medzeru
+                    StringBuilder sbuf = new StringBuilder();//vytvorime sbuf
+                    while (((i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') || (i < tokens.length && tokens[i] == '.'))) 
+                        sbuf.append(tokens[i++]);//pridavame cisla a bodky
+                    Double d1 =Double.parseDouble(sbuf.toString());//zkonvertujeme cislo na double
+                    values.push(MyMath.ln(d1));//vratime na zasobnik pre dalsie vypocty
+            } 
+            else if((tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/') && i!=0){ 
+                while (!ops.empty() && hasPrecedence(tokens[i], ops.peek())){//ak nie je zasobnik operatorov prazdny a zaroven
+                    //ak zhodnotime prednost operatorov
+                    values.push(applyOp(ops.pop(), values.pop(), values.pop())); //vypocitame a vlozime spat na zasobnik
+                } 
+                ops.push(tokens[i]); //pridame aktualny operator k operatorom
+            } 
+        } 
+        while (!ops.empty()){
+                Character op = ops.pop();//natiahneme operator a honoty zo zasobniku
+                Double val1 = values.pop();
+                Double val2 = values.pop();
+                if(val1.equals(0.0) && op=='/'){//skontrolujeme delenie nulou
+                    return "Can't divide by ZERO";
+                }
+                else{
+                    values.push(applyOp(op, val1, val2));//inak spocitame a vratime na zasobnik pokial tam neostane len jedno cislo 
+                }
+        }        
+        answer=String.format("%.6f",values.pop()).replace(',','.'); //sformatujeme vystup
+        return  answer;//vratime vystup
+    }
+    
+    public static boolean hasPrecedence(char op1, char op2){ 
+        return !((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')); //kontrola honosti operatorov
+    } 
+  
+    //pomocna funkcia na vypocty podla oeratora 
+    public static double applyOp(char op, double b, double a) { 
+        switch (op) 
+        { 
+        case '+': 
+            return MyMath.add(a, b); 
+        case '-': 
+            return MyMath.sub(a, b); 
+        case '*': 
+            return MyMath.mul(a, b); 
+        case '!': 
+            return MyMath.fac(a);
+        case '/': 
+            return MyMath.div(a, b); 
+        } 
+        return 0; 
+    } 
     
     
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -621,19 +1051,10 @@ public class Calculator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBackspace;
+    private javax.swing.JButton jBtn0;
     private javax.swing.JButton jBtn1;
-    private javax.swing.JButton jBtn10;
-    private javax.swing.JButton jBtn11;
-    private javax.swing.JButton jBtn12;
-    private javax.swing.JButton jBtn13;
-    private javax.swing.JButton jBtn14;
-    private javax.swing.JButton jBtn15;
-    private javax.swing.JButton jBtn16;
-    private javax.swing.JButton jBtn17;
-    private javax.swing.JButton jBtn19;
     private javax.swing.JButton jBtn2;
-    private javax.swing.JButton jBtn20;
-    private javax.swing.JButton jBtn21;
     private javax.swing.JButton jBtn3;
     private javax.swing.JButton jBtn4;
     private javax.swing.JButton jBtn5;
@@ -641,13 +1062,21 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton jBtn7;
     private javax.swing.JButton jBtn8;
     private javax.swing.JButton jBtn9;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jClear;
+    private javax.swing.JButton jDivide;
+    private javax.swing.JButton jEvaluate;
+    private javax.swing.JButton jExp;
+    private javax.swing.JButton jFactorial;
+    private javax.swing.JButton jLn;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JButton jMinus;
+    private javax.swing.JButton jMultiply;
+    private javax.swing.JButton jPlus;
+    private javax.swing.JButton jPoint;
+    private javax.swing.JMenuItem jScientific;
+    private javax.swing.JButton jSqrt;
+    private javax.swing.JMenuItem jStandard;
     private javax.swing.JTextField jtxtDisplay;
     // End of variables declaration//GEN-END:variables
 }
