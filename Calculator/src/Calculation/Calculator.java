@@ -413,7 +413,6 @@ public class Calculator extends javax.swing.JFrame {
         String str = jtxtDisplay.getText();//zoberie text z textfieldu
         if(SyntaxError()==true){//ak to je error, zmaze obrazovku
             jtxtDisplay.setText("");
-            str="";
         }
         else if(str.equals("")){
             jtxtDisplay.setText(jMinus.getText());//ak je prazdny,nastavi minus
@@ -881,16 +880,11 @@ public class Calculator extends javax.swing.JFrame {
         return str.substring(0, str.length() - 1);
     }
     
-    private boolean SyntaxError() {//funkcia na kotrolu errorov
-        if(jtxtDisplay.getText().equals("Syntax ERROR") || jtxtDisplay.getText().equals("Can't divide by ZERO")){
-            return true;
-        }
-        else{
-            return false;
-        }
+    private boolean SyntaxError() { //funkcia na kotrolu errorov
+        return jtxtDisplay.getText().equals("Syntax ERROR") || jtxtDisplay.getText().equals("Can't divide by ZERO");
     }
     
-    String calculate(String input){//funkcia calculate pre vypocty
+    public static String calculate(String input){//funkcia calculate pre vypocty
         
         if(!Character.isDigit(input.charAt(input.length()-1)) && !('!'==input.charAt(input.length()-1))){//ak nie je psoledny znak cislo alebo !, hod error
                    return "Syntax ERROR";
