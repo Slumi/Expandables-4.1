@@ -384,31 +384,31 @@ public class CalculatorTest extends TestCase {
     
     @Test
     public void testError2(){
-        String Equation = "/4*10";
-        String expectingResult = "40.000000";
+        String Equation = "4*10/";
+        String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
     }
     
     @Test
     public void testError3(){
-        String Equation = "*6-0.9800";
-        String expectingResult = "5.020000";
+        String Equation = "6-0.9800.";
+        String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
     }
     
     @Test
     public void testError4(){
-        String Equation = "10000*/0.8"; // Vraci ciste error, ale to uy vyhledem k implemetaci
-        String expectingResult = "Syntax error";
+        String Equation = "10000*0.8^"; // Vraci ciste error, ale to uy vyhledem k implemetaci
+        String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
-    }
+}
     
     @Test
     public void testError5(){
-        String Equation = ".09+8"; // Chyba v implementaci, toto ma byt chybou
+        String Equation = "7√"; // Chyba v implementaci, toto ma byt chybou
         String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
@@ -416,15 +416,15 @@ public class CalculatorTest extends TestCase {
     
     @Test
     public void testError6(){
-        String Equation = "!8";
-        String expectingResult = "NaN";
+        String Equation = "0.0.8!"; // Chyba v implementaci, toto ma byt chybou
+        String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
     }
     
     @Test
     public void testError7(){
-        String Equation = "+";
+        String Equation = "-";
         String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
@@ -432,7 +432,7 @@ public class CalculatorTest extends TestCase {
     
     @Test
     public void testError8(){
-        String Equation = "!";
+        String Equation = "ln";
         String expectingResult = "Syntax ERROR";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
@@ -544,7 +544,7 @@ public class CalculatorTest extends TestCase {
     
      @Test
     public void testExponencial_10(){
-        String Equation = "3odmocnina8";
+        String Equation = "3√8";
         String expectingResult = "2.000000";
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
