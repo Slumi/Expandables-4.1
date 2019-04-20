@@ -549,4 +549,148 @@ public class CalculatorTest extends TestCase {
         String result = calculator.calculate(Equation);
         assertEquals(result, expectingResult);
     }
+    
+    @Test
+    public void testExponencial_11(){
+        String Equation = "2√4";
+        String expectingResult = "2.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_12(){
+        String Equation = "2√10";
+        String expectingResult = "3.162278";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_13(){
+        String Equation = "2√0";
+        String expectingResult = "0.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_14(){
+        String Equation = "3√8 + 3";
+        String expectingResult = "5.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_15(){
+        String Equation = "-2√7";
+        String expectingResult = "0.377964";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_16(){
+        String Equation = "100√100";
+        String expectingResult = "1.047129";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_17(){
+        String Equation = "-90√2";
+        String expectingResult = "0.992328";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_18(){
+        String Equation = "2√100*10-10";
+        String expectingResult = "90.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_19(){
+        String Equation = "2√";
+        String expectingResult = "Syntax ERROR";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_20(){
+        String Equation = "√";
+        String expectingResult = "Syntax ERROR";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_21(){
+        String Equation = "√/";
+        String expectingResult = "Syntax ERROR";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_22(){
+        String Equation = "+9√2";
+        String expectingResult = "1.080060";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_23(){
+        String Equation = "2√0*1";
+        String expectingResult = "0.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testExponencial_24(){
+        String Equation = "0√1";
+        String expectingResult = "NaN";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testFaktorial_25(){
+        String Equation = "8!+4*21";
+        String expectingResult = "40404.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testFactorial_26(){
+        String Equation = "0√0";
+        String expectingResult = "0.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testFactorial_27(){ //Mela by byt chyba
+        String Equation = "0.009!";
+        String expectingResult = "0.009000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
+    
+    @Test
+    public void testFactorial_28(){
+        String Equation = "0.0!";
+        String expectingResult = "1.000000";
+        String result = calculator.calculate(Equation);
+        assertEquals(result, expectingResult);
+    }
 }
