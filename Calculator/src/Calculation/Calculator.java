@@ -12,7 +12,9 @@ import java.util.Stack;
  * @author Marie Bednářová
  * @author Damián Gladiš
  * @author Šimon Galba
+ * @version 1.0
  */
+
 public class Calculator extends javax.swing.JFrame {
     /**
      * Creates new form Calculator
@@ -384,7 +386,11 @@ public class Calculator extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Button "9"
+     * @param evt
+     * 
+     */
     private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
         //posluchac k tlacitku '9'
         String str = jtxtDisplay.getText();//zoberie text z textfieldu
@@ -407,7 +413,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn9ActionPerformed
-
+    /**
+     * Button "-"
+     * @param evt 
+     */
     private void jMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMinusActionPerformed
         //posluchac k tlacidlu '-'
         String str = jtxtDisplay.getText();//zoberie text z textfieldu
@@ -433,7 +442,10 @@ public class Calculator extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jMinusActionPerformed
-
+    /**
+     * Button "3"
+     * @param evt 
+     */
     private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
         // posluchac k tlacidlu '3'
         String str = jtxtDisplay.getText();//nacita text z textfieldu
@@ -457,7 +469,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn3ActionPerformed
-
+    /**
+     * Button "1"
+     * @param evt 
+     */
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
         //posluchac k cislu '1'
         String str = jtxtDisplay.getText();//nacita text z textfieldu
@@ -480,7 +495,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn1ActionPerformed
-
+    /**
+     * Button "2"
+     * @param evt 
+     */
     private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
         // posluchac k tlacidlu '2'
         String str = jtxtDisplay.getText();//text na testfielde
@@ -503,7 +521,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn2ActionPerformed
-
+    /**
+     * Button "4"
+     * @param evt 
+     */
     private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
         // posluchac pre cislo '4'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -526,7 +547,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn4ActionPerformed
-
+    /**
+     * Button "5"
+     * @param evt 
+     */
     private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
         // posluchac pre cislo '5'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -549,7 +573,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn5ActionPerformed
-
+    /**
+     * Button "6"
+     * @param evt 
+     */
     private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
         // posluchac pre cislo '6'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -572,7 +599,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn6ActionPerformed
-
+    /**
+     * Button "7"
+     * @param evt 
+     */
     private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
         // posluchac pre cislo '7'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -595,7 +625,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn7ActionPerformed
-
+    /**
+     * Button "8"
+     * @param evt 
+     */
     private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
         // posluchac pre cislo '8'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -618,7 +651,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn8ActionPerformed
-
+    /**
+     * Button "0"
+     * @param evt 
+     */
     private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn0ActionPerformed
         // posluchac pre cislo '0'
         String str = jtxtDisplay.getText();//nacita vstup
@@ -641,7 +677,10 @@ public class Calculator extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jBtn0ActionPerformed
-
+    /**
+     * Button "+"
+     * @param evt 
+     */
     private void jPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPlusActionPerformed
         // posluchac pre tlacidlo '+'
             String str = jtxtDisplay.getText();
@@ -669,7 +708,10 @@ public class Calculator extends javax.swing.JFrame {
 
             }
     }//GEN-LAST:event_jPlusActionPerformed
-
+    /**
+     * Button "*"
+     * @param evt 
+     */
     private void jMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMultiplyActionPerformed
             // posluchac pre tlacidlo '*'
             String str = jtxtDisplay.getText();
@@ -699,7 +741,10 @@ public class Calculator extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_jMultiplyActionPerformed
-
+    /**
+     * Button "/"
+     * @param evt 
+     */
     private void jDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDivideActionPerformed
          // posluchac pre tlacidlo '/'
             String str = jtxtDisplay.getText();
@@ -728,7 +773,10 @@ public class Calculator extends javax.swing.JFrame {
             }
          
     }//GEN-LAST:event_jDivideActionPerformed
-
+    /**
+     * Button "."
+     * @param evt 
+     */
     private void jPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPointActionPerformed
         // posluchac pre tlacidlo '.'
             String str = jtxtDisplay.getText();
@@ -747,7 +795,10 @@ public class Calculator extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_jPointActionPerformed
-
+    /**
+     * Button "<-"
+     * @param evt 
+     */
     private void jBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackspaceActionPerformed
         // posluchac pre tlacidlo '<-'
             String str = jtxtDisplay.getText();
@@ -760,7 +811,10 @@ public class Calculator extends javax.swing.JFrame {
             jtxtDisplay.setText(str);//zobraz upraveny retazec
         
     }//GEN-LAST:event_jBackspaceActionPerformed
-
+    /**
+     * Button "="
+     * @param evt 
+     */
     private void jEvaluateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEvaluateActionPerformed
         if(SyntaxError()==true){        //ak bol na obrazovke textfield, vymaz ho a nechaj prazdny
             jtxtDisplay.setText("");
@@ -773,12 +827,18 @@ public class Calculator extends javax.swing.JFrame {
             }   
         }
     }//GEN-LAST:event_jEvaluateActionPerformed
-
+    /**
+     * Button "C"
+     * @param evt 
+     */
     private void jClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jClearActionPerformed
         // posluchac k tlacidlu 'C'
         jtxtDisplay.setText("");//zmaz vsetko na obrazovke
     }//GEN-LAST:event_jClearActionPerformed
-
+    /**
+     * Button "Scientific"
+     * @param evt 
+     */
     private void jScientificActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jScientificActionPerformed
         //posluchac k type Scientific
         this.setSize(380, 460);     //velkost kalkulacky   
@@ -787,7 +847,10 @@ public class Calculator extends javax.swing.JFrame {
         jtxtDisplay.setMaximumSize(new Dimension(362, 74));
 
     }//GEN-LAST:event_jScientificActionPerformed
-
+    /**
+     * 
+     * @param evt 
+     */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
          //posluchac k Oknu po spusteni Kalkulacky
         this.setSize(300, 460);//velkost kalkulacky 
@@ -795,7 +858,10 @@ public class Calculator extends javax.swing.JFrame {
         jtxtDisplay.setMinimumSize(new Dimension(282, 74));//velkost textfieldu
         jtxtDisplay.setMaximumSize(new Dimension(282, 74));
     }//GEN-LAST:event_formWindowActivated
-
+    /**
+     * Button "Standard"
+     * @param evt 
+     */
     private void jStandardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStandardActionPerformed
         //posluchac k type Standard
         this.setSize(300, 460);//velkost kalkulacky 
@@ -803,7 +869,10 @@ public class Calculator extends javax.swing.JFrame {
         jtxtDisplay.setMinimumSize(new Dimension(282, 74));//velkost textfieldu
         jtxtDisplay.setMaximumSize(new Dimension(282, 74));
     }//GEN-LAST:event_jStandardActionPerformed
-
+    /**
+     * Button "!"
+     * @param evt 
+     */
     private void jFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFactorialActionPerformed
         //posluchac k tlacidlu '!'    
         String str = jtxtDisplay.getText();
@@ -819,7 +888,10 @@ public class Calculator extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jFactorialActionPerformed
-
+    /**
+     * Button "√"
+     * @param evt 
+     */
     private void jSqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSqrtActionPerformed
         //posluchac pre tlacidlo '√'
         String str = jtxtDisplay.getText();
@@ -835,7 +907,10 @@ public class Calculator extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jSqrtActionPerformed
-
+    /**
+     * Button "ln"
+     * @param evt 
+     */
     private void jLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLnActionPerformed
         //posluchac pre tlacidlo 'ln'
         String str = jtxtDisplay.getText();
@@ -855,7 +930,10 @@ public class Calculator extends javax.swing.JFrame {
             jtxtDisplay.setText(jLn.getText());
         }
     }//GEN-LAST:event_jLnActionPerformed
-
+    /**
+     * Button "^"
+     * @param evt 
+     */
     private void jExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExpActionPerformed
         //posluchac k tlacidlu '^'
         String str = jtxtDisplay.getText();
@@ -871,20 +949,37 @@ public class Calculator extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jExpActionPerformed
-
+    /**
+     * 
+     * @param evt 
+     */
     private void jtxtDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtDisplayActionPerformed
         //posluchac k textfieldu jtxtDisplay
         this.jtxtDisplay.setEditable(false);//zamedzenie zmeny velkosti
     }//GEN-LAST:event_jtxtDisplayActionPerformed
     //funkcia prebera string, odstrani posledný znak a vrati upravený string
+    /**
+     * 
+     * @param str
+     * @return 
+     */
     private String removeLastChar(String str) {//funkcia na ostranenie posledneho znaku z retazca
         return str.substring(0, str.length() - 1);
     }
     //funkcia na zistenie, ci na obrazovke je error, vracia true alebo false
+    /**
+     * Checks if is error on screen
+     * @return true or false
+     */
     private boolean SyntaxError() { //funkcia na kotrolu errorov
         return jtxtDisplay.getText().equals("Syntax ERROR") || jtxtDisplay.getText().equals("Can't divide by ZERO");
     }
     //funkcia prebera vstupny string a aj vracia výsledok uz ako string
+    /**
+     * 
+     * @param input
+     * @return 
+     */
     public static String calculate(String input){//funkcia calculate pre vypocty
         
         if(!Character.isDigit(input.charAt(input.length()-1)) && !('!'==input.charAt(input.length()-1))){//ak nie je psoledny znak cislo alebo !, hod error
@@ -994,12 +1089,25 @@ public class Calculator extends javax.swing.JFrame {
         return  answer;//vratime vystup
     }
     //funkcia na zistenie ktorá operácia ma prednost, ak je op1 * alebo /, druhý + alebo -, vracia false, inak true
+    /**
+     * 
+     * @param op1
+     * @param op2
+     * @return 
+     */
     public static boolean hasPrecedence(char op1, char op2){ 
         return !((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')); //kontrola honosti operatorov
     } 
   
     //pomocna funkcia na vypocty podla oeratora , preberá operator a dva cisla na výpocet
     //vracia double vysledok
+    /**
+     * 
+     * @param op
+     * @param b
+     * @param a
+     * @return 
+     */
     public static double applyOp(char op, double b, double a) { 
         switch (op) 
         { 

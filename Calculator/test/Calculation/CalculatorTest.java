@@ -11,8 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
- * @author Majka
+ * @author Žaneta Grossová
+ * @author Marie Bednářová
+ * @author Damián Gladiš
+ * @author Šimon Galba
+ * @version 1.0
  */
 public class CalculatorTest extends TestCase {
 

@@ -7,10 +7,18 @@ package Calculation;
 import java.util.*;
 
 /**
- *
- * @author localadmin
+ * @author Žaneta Grossová
+ * @author Marie Bednářová
+ * @author Damián Gladiš
+ * @author Šimon Galba
+ * @version 1.0
  */
+
 public class Profiling {
+    /**
+     * 
+     * @param args 
+     */
     public static void main(String[] args){
         if(args.length == 0)
         {
