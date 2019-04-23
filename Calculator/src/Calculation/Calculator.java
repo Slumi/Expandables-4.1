@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Calculation;
-import MathPackage.MyMath;
 import java.awt.Dimension;
 import java.util.Stack;
 
