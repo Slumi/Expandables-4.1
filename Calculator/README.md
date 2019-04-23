@@ -1,5 +1,5 @@
 Platformy
-Windows 10, 64bit
+Windows 64bit
 
 Autoři
 xbedna72 Marie Bednářová
