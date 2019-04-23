@@ -20,7 +20,7 @@ public class Calculator extends javax.swing.JFrame {
     public Calculator() {
         initComponents();
     }
-
+    //od 30 po 387 je generovaný kód podla designu
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -441,6 +441,7 @@ public class Calculator extends javax.swing.JFrame {
             jtxtDisplay.setText(jBtn3.getText());//ak je error, zmaz a nastav '3'
         }
         else{
+            
             int len = str.length();
             if(str.equals("")){//ak je prazdny,pridaj trojku
                 str = str + jBtn3.getText();
@@ -875,15 +876,15 @@ public class Calculator extends javax.swing.JFrame {
         //posluchac k textfieldu jtxtDisplay
         this.jtxtDisplay.setEditable(false);//zamedzenie zmeny velkosti
     }//GEN-LAST:event_jtxtDisplayActionPerformed
-  
+    //funkcia prebera string, odstrani posledný znak a vrati upravený string
     private String removeLastChar(String str) {//funkcia na ostranenie posledneho znaku z retazca
         return str.substring(0, str.length() - 1);
     }
-    
+    //funkcia na zistenie, ci na obrazovke je error, vracia true alebo false
     private boolean SyntaxError() { //funkcia na kotrolu errorov
         return jtxtDisplay.getText().equals("Syntax ERROR") || jtxtDisplay.getText().equals("Can't divide by ZERO");
     }
-    
+    //funkcia prebera vstupny string a aj vracia výsledok uz ako string
     public static String calculate(String input){//funkcia calculate pre vypocty
         
         if(!Character.isDigit(input.charAt(input.length()-1)) && !('!'==input.charAt(input.length()-1))){//ak nie je psoledny znak cislo alebo !, hod error
@@ -992,12 +993,13 @@ public class Calculator extends javax.swing.JFrame {
         answer=String.format("%.6f",values.pop()).replace(',','.'); //sformatujeme vystup
         return  answer;//vratime vystup
     }
-    
+    //funkcia na zistenie ktorá operácia ma prednost, ak je op1 * alebo /, druhý + alebo -, vracia false, inak true
     public static boolean hasPrecedence(char op1, char op2){ 
         return !((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')); //kontrola honosti operatorov
     } 
   
-    //pomocna funkcia na vypocty podla oeratora 
+    //pomocna funkcia na vypocty podla oeratora , preberá operator a dva cisla na výpocet
+    //vracia double vysledok
     public static double applyOp(char op, double b, double a) { 
         switch (op) 
         { 
@@ -1007,15 +1009,13 @@ public class Calculator extends javax.swing.JFrame {
             return MyMath.sub(a, b); 
         case '*': 
             return MyMath.mul(a, b); 
-        case '!': 
-            return MyMath.fac(a);
         case '/': 
             return MyMath.div(a, b); 
         } 
         return 0; 
     } 
     
-    
+    //hlavna main funkcia, inicializuje vsetko, vsetko odtial smerom dole vygenerovalo automaticky
     /**
      * @param args the command line arguments
      */
