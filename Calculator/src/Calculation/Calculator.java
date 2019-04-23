@@ -942,7 +942,7 @@ public class Calculator extends javax.swing.JFrame {
             } 
             else if(tokens[i] == '!'){
                     Double valueFac=values.pop();//zoberie cislo zo zasobniku co bolo pred ! a vypocita
-                    if(valueFac<0)return "Syntax ERROR";
+                    if(valueFac<0 || valueFac%1!=0)return "Syntax ERROR";
                     values.push(MyMath.fac(valueFac));//hodi to naspat na zasobnik pre dalsie vypocty
             }
             else if(tokens[i] == '^'){//mocnina
