@@ -1,0 +1,4 @@
+xgladi00 100 (graficka uzivatelska cast, prepojenie uzivatelskej a algortimickej casti) 
+xgalba03 100 (vypoctova cast zakl. matematiky, profiling) 
+xbedna72 100 (testovacie vstupy, vedeck· vypoctova castù)
+xgross11 100 (instalacia, dokumentacia)
