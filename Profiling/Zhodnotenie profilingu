@@ -2,6 +2,6 @@ Hneď na prvý pohľad je zo získaných dát zrejmé, že najviac času strávi
 Avšak pri pohľade na strávený čas je vidieť, že aj pri 1000 vystupoch sú hodnoty takmer zanedbateľné. Pri zväčšovaní počtu vstupov
 môžeme pozorovať nárast stráveného času pri výpočte pomocnej hodnoty pre výpočet variácie. Opäť sú však časy veľmi malé. 
 Možné vylepšenia: 
-  Pri spracuvávaní tisícov alebo miliónov vstupov by nemuselo byť ukladanie do zoznamu vhodné. Pravdepodobne by bolo lepšie program upraviť tak
+  Pri spracuvávaní tisícov alebo miliónov vstupov by nemuselo byť ukladanie do zoznamu vhodné. Pravdepodobne by bolo lepšie program upraviť 
   tak, aby hodnoty počítal priamo.
   V momentálnom rozsahu vstupov nie je žiadny dôvod na rozsiahlu optimalizáciu. Program beží podľa očakávaní a konštantne rýchlo.
