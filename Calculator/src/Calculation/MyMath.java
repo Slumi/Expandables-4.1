@@ -25,7 +25,7 @@ public class MyMath {
     return result;
     }
     /**
-     * 
+     * Subtract second number from the first number
      * @param firstnum first number
      * @param secondnum second number
      * @return difference of two numbers
@@ -35,7 +35,7 @@ public class MyMath {
     return result;
     }
     /**
-     * 
+     * Multiply two numbers
      * @param firstnum first number
      * @param secondnum second number
      * @return product of two numbers
@@ -45,7 +45,7 @@ public class MyMath {
     return result;
     }
     /**
-     * 
+     * Divide first number by the second one
      * @param firstnum first number
      * @param secondnum second number
      * @return quotient of two numbers
@@ -55,9 +55,9 @@ public class MyMath {
     return result;
     }
     /**
-     * 
+     * Count factorial of number
      * @param num number whose factorial we want
-     * @return 
+     * @return factorial of number
      */
     public static double fac(double num){
     double i = num;
@@ -102,99 +102,99 @@ public class MyMath {
     return result;
     }
     /**
-     * 
-     * @param base
-     * @param exponent
-     * @return 
+     * Count n-power of number
+     * @param base base of the power
+     * @param exponent exponent
+     * @return power
      */
     public static double pow(double base, double exponent){
     double result = Math.pow(base, exponent);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count sine of number
+     * @param firstnum number we count sine of
+     * @return sine of number
      */
     public static double sin(double firstnum){
     double result = Math.sin(firstnum);
     return result;
     }
      /**
-      * 
-      * @param firstnum
-      * @return 
+      * Count cosine of number
+      * @param firstnum number we count cosine of
+      * @return cosine of number
       */
     public static double cos(double firstnum){
     double result = Math.cos(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count tangent og number
+     * @param firstnum number we count tangnent of
+     * @return tangent
      */
     public static double tan(double firstnum){
     double result = Math.tan(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count inverse sine
+     * @param firstnum number we count arcsin of
+     * @return inverse sine
      */
     public static double asin(double firstnum){
     double result = Math.asin(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count inverse cosine
+     * @param firstnum number we count arccos of
+     * @return inverse cosine
      */
     public static double acos(double firstnum){
     double result = Math.acos(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count inverse  tangent
+     * @param firstnum number we count arctan of
+     * @return  inverse tangent
      */
     public static double atan(double firstnum){
     double result = Math.atan(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count e^x
+     * @param firstnum exponent
+     * @return e^x
      */
     public static double exp(double firstnum){   // e umocnene na x 
     double result = Math.exp(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return 
+     * Count logarithm with base e
+     * @param firstnum Number we count with
+     * @return natural logarithm
      */
     public static double ln(double firstnum){
     double result = Math.log(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
-     * @return decadic logarithm-logarithm to the base 10
+     * Count logarithm with base 10
+     * @param firstnum Number we count with
+     * @return decadic logarithm
      */
     public static double log(double firstnum){   // logaritmus o zaklade 10 
     double result = Math.log10(firstnum);
     return result;
     }
     /**
-     * 
-     * @param firstnum
+     * Count absolut value from number
+     * @param firstnum Number we want absolut value of
      * @return absolut value
      */
     public static double abs(double firstnum){   // absolutna hodnota x  
