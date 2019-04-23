@@ -8,4 +8,5 @@ xgalba03 Šimon Galba
 xgladi00 Damián Gladiš
 
 Licence
-Tento program je distribuován pod licencí
+Tento program je distribuován pod licencí GNU GPL
+
