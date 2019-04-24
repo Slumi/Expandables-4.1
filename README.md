@@ -15,5 +15,5 @@ Autoři:
 
       xgladi00 Damián Gladiš
 
-Licence
-Tento program je distribuován pod licencí GNU General Public License v3.0.
+Licence:
+      Tento program je distribuován pod licencí GNU General Public License v3.0.
